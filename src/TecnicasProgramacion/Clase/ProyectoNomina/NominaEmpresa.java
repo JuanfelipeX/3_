@@ -32,7 +32,6 @@ public class NominaEmpresa {
                         break;
 
                     case 3:
-                        JOptionPane.showMessageDialog(null, "nomina por total: " + empresa.nomina(cont));
 
                         break;
 
