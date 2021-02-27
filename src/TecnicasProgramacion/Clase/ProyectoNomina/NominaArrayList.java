@@ -40,12 +40,8 @@ public class NominaArrayList {
                         break;
 
                     case 3:
-                        NominaArrayList nominaArrayList = new NominaArrayList();
-                          
 
-                        JOptionPane.showMessageDialog(null, "Nomina total:" + empleadoList.totalNomina());
-                         
-
+                        // JOptionPane.showMessageDialog(null, "Nomina total:" + empleadoList.totalNomina()); aqui no pude mostrar la lista total empleadoList me da error
                         break;
 
                     case 4:
