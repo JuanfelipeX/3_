@@ -41,7 +41,15 @@ public class NominaArrayList {
 
                     case 3:
 
-                        // JOptionPane.showMessageDialog(null, "Nomina total:" + empleadoList.totalNomina()); aqui no pude mostrar la lista total empleadoList me da error
+                        long acumulador = 0;
+                        for (int i = 0; i < listaEmpleados.size(); i++) {
+
+                            acumulador = acumulador + listaEmpleados.get(i).calculandoNomina(5000);
+                        }
+
+                        JOptionPane.showMessageDialog(null, "Nomina total:" + acumulador);
+                      
+                    
                         break;
 
                     case 4:
@@ -90,15 +98,6 @@ class EmpleadoList {
         return "Nomina " + calculandoNomina(empresaList.getValorHora());
     }
 
-    
-    public long totalNomina() {
-     
-        long acumulador = 0;
-        acumulador = acumulador + calculandoNomina(empresaList.getValorHora());
-        return acumulador;
-    }
-      
-     
 }
 
 
