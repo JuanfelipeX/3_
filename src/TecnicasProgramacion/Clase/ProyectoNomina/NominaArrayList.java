@@ -93,7 +93,8 @@ class EmpleadoList {
     @Override
     public String toString() {
 
-        return "Nomina " + calculandoNomina(empresaList.getValorHora());
+        return "Nomina " +  calculandoNomina(empresaList.getValorHora());
+        
     }
 
 }
