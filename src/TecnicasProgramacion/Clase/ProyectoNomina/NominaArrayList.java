@@ -40,9 +40,11 @@ public class NominaArrayList {
                         break;
 
                     case 3:
-                        //   NominaArrayList nominaArrayList = new NominaArrayList();
+                        NominaArrayList nominaArrayList = new NominaArrayList();
+                          
 
-                        // JOptionPane.showMessageDialog(null, "Nomina total:" +  nominaArrayList.totalNomina());
+                        JOptionPane.showMessageDialog(null, "Nomina total:" + empleadoList.totalNomina());
+                         
 
                         break;
 
@@ -60,19 +62,7 @@ public class NominaArrayList {
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
-
     }
-
-    /*
-    public long totalNomina() {
-
-        EmpleadoList empleadoList = new EmpleadoList(0);
-        long acumulador = 0;
-        acumulador = acumulador + empleadoList.calculandoNomina(5000);
-
-        return acumulador;
-    }
-    */
 }
 
 
@@ -103,6 +93,16 @@ class EmpleadoList {
 
         return "Nomina " + calculandoNomina(empresaList.getValorHora());
     }
+
+    
+    public long totalNomina() {
+     
+        long acumulador = 0;
+        acumulador = acumulador + calculandoNomina(empresaList.getValorHora());
+        return acumulador;
+    }
+      
+     
 }
 
 
