@@ -34,9 +34,8 @@ public class NominaArrayList {
                         break;
 
                     case 2:
-                        int conta = 0;
-                        JOptionPane.showMessageDialog(null, "Empleado " + (conta + 1) + " " + listaEmpleados);
-                        conta++;
+
+                        JOptionPane.showMessageDialog(null, "Empleados con " + listaEmpleados);
                         break;
 
                     case 3:
@@ -48,7 +47,6 @@ public class NominaArrayList {
                         }
 
                         JOptionPane.showMessageDialog(null, "Nomina total:" + acumulador);
-                      
                     
                         break;
 
