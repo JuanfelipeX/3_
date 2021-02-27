@@ -27,12 +27,11 @@ public class NominaEmpresa {
                     break;
                         
                     case 2:
-                        JOptionPane.showMessageDialog(null, "nomina por empleado: " + empresa.nomina(cont));
-                          
+                        JOptionPane.showMessageDialog(null, "nomina por empleado: " + empresa.calcularEmpleado(cont));
                         break;
 
                     case 3:
-
+                        JOptionPane.showMessageDialog(null, "nomina total: " + empresa.nomina(cont));
                         break;
 
                     case 4:
@@ -70,7 +69,7 @@ class Empleado {
         this.cantidadHoraTrabajada = cantidadHoraTrabajada;
     }
 
-    public long calcularNomina(int valorHora) {
+    public long calcularNomina(long valorHora) {
         return (this.cantidadHoraTrabajada * valorHora);
     }
 }
@@ -80,7 +79,7 @@ class Empleado {
 class Empresa {
     
     private static int cantidadEmpleado = 3;
-    private static int horasTrabajadas = 50000;
+    private static int horasTrabajadas = 10000;
 
     Empleado [] listaEmpleado = new Empleado [cantidadEmpleado]; 
 
@@ -113,19 +112,18 @@ class Empresa {
 
     
 
-    public long nomina(int cantidad) {
+    public long nomina(int cantidad) {       //nomina de todos los empleados
         long acumulador = 0;
-
         for (int i = 0; i < cantidad; i++) {
-            acumulador = acumulador + this.listaEmpleado[i].calcularNomina(cantidad);
+            acumulador = acumulador + this.listaEmpleado[i].calcularNomina(horasTrabajadas);
         }
         return acumulador;
     }
 
-    public String calcularEmpleado(int cantidad) {
+    public String calcularEmpleado(int cantidad) {   //nomina de un empleado
         String cadena = "";
         for (int i = 0; i < cantidad; i++) {
-            cadena += "Nomina empleado numero" + (i + 1) + ": $" + listaEmpleado[i].calcularNomina(cantidad);
+            cadena += "Nomina empleado numero" + (i + 1) + ": $" + listaEmpleado[i].calcularNomina(horasTrabajadas);
         }
         return cadena;
     }
