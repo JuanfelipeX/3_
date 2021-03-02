@@ -9,33 +9,45 @@ public class Adivinar {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException {
-        randomNumber(0, 100, 50);
+        randomNumber(0, 100);
     }
 
-    public static void randomNumber(int limiteInferior, int limiteSuperior, int numeroPregunta) throws IOException {
+    public static void randomNumber(int limiteInferior, int limiteSuperior) throws IOException {
 
-        System.out.println("es " + numeroPregunta + "?");
+        int mid = (limiteInferior + limiteSuperior) / 2;
+
+        System.out.println("es " + mid + "?");
         String signo = br.readLine();   
      
         if (signo.equalsIgnoreCase("+")) {
-            limiteInferior = numeroPregunta;
-            numeroPregunta = (limiteInferior + limiteSuperior) / 2;
+            limiteInferior = mid;
+            mid = (limiteInferior + limiteSuperior) / 2;
+            if ((limiteInferior == limiteSuperior )) {
+                System.out.println("Tramposo porque es: " + (mid-1));
+            } else {
+                  randomNumber(limiteInferior+1, limiteSuperior);   
+            }
 
-            randomNumber(limiteInferior, limiteSuperior, numeroPregunta);
+          
 
         } else if (signo.equalsIgnoreCase("-")) {
-            limiteSuperior = numeroPregunta;
-            numeroPregunta = (limiteInferior + limiteSuperior) / 2;
+            limiteSuperior = mid;
+            mid = (limiteInferior + limiteSuperior) / 2;
 
-            randomNumber(limiteInferior, limiteSuperior, numeroPregunta);
-
-        }else if(limiteInferior==limiteSuperior){
-
-            System.out.println("Tramposo porque es:" + numeroPregunta);
+            if ((limiteInferior == limiteSuperior )){
+                if (limiteInferior==limiteSuperior && limiteInferior!=0) {
+                    System.out.println("Tramposo porque es: " + (mid-1 ));
+                } else{
+                System.out.println("Tramposo porque es: " + (mid ));
+                }
+            } else {
+                randomNumber(limiteInferior, limiteSuperior - 1);
+                
+            }
 
         } else if (signo.equalsIgnoreCase("=")) {
 
-            System.out.println("yuju!" + numeroPregunta);
+            System.out.println("yuju!" + mid);
         }
     }
 }
