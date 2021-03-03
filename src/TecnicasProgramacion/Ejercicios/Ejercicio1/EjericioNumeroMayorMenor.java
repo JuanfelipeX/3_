@@ -1,4 +1,4 @@
-package TecnicasProgramacion.Ejercicios;
+package TecnicasProgramacion.Ejercicios.Ejercicio1;
 
 import java.io.IOException;
 import java.util.Scanner;
