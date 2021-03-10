@@ -3,7 +3,7 @@ package EstructuraDatos.BronsonAviones;
 import java.util.ArrayList;
 
 public class Bronson {
-
+    
     public static void main(String[] args) {
 
         Inventario in = new Inventario();
@@ -26,29 +26,28 @@ public class Bronson {
         p.setNombre("Carta al niño Dios");
         p.setPeso(255000.0);
         c1.addPaquete(p); //check  
-        
+
         Paquete p2 = new Paquete();
         p.setNombre("Regalos");
         p.setPeso(255000.2);
         c1.addPaquete(p2);
-        
+
         Paquete p3 = new Paquete();
         p.setNombre("Mirra");
         p.setPeso(12000.0);
-        c1.addPaquete(p3); 
+        c1.addPaquete(p3);
 
         in.addAvion(av1);
         in.addAvion(av2);
         in.addAvion(c1);
         in.listaAviones();
-
-
     }
 
 }
+    
 
-class Inventario {
 
+ class Inventario {
     ArrayList<Avion> aviones = new ArrayList<>();
 
     public ArrayList<Avion> getAviones() {
@@ -56,17 +55,18 @@ class Inventario {
     }
 
     public void addAvion(Avion avion) { //falta aqui
-
+        aviones.add(avion);
     }   
 
-    public void listaAviones() {  // falta
-
+    public void listaAviones() {  
+        for (int i = 0; i < aviones.size(); i++) {
+            aviones.get(i).visualizar();
+        }
+        
     }
 }
 
-
 abstract class Avion {
-
     int velocidad;
     String matricula;
 
@@ -87,17 +87,16 @@ abstract class Avion {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
+
 }
 
-
-
-
-class Pasajero extends Avion {
-
+ class Pasajero extends Avion {
     int numeroPasajeros;
 
+    @Override
     public void visualizar() {
-
+        System.out.println("Avión de pasajeros matrícula: " + getMatricula() + ", capacidad: " + getNumeroPasajeros()
+                + ", velocidad: " + getVelocidad() + " km/h");
     }
 
     public int getNumeroPasajeros() {
@@ -111,31 +110,38 @@ class Pasajero extends Avion {
 }
 
 
-
-class Carga extends Avion {
-
+ class Carga extends Avion {
     ArrayList<Paquete> paquetes = new ArrayList<>();
-    double peso_Maximo;
-    double pesoActual;
-
-    public void visualizar() {
-
-    }
-
+    double peso_Maximo = 447700;
+    double pesoActual=0;
+    
     public ArrayList<Paquete> getPaquetes() {
         return paquetes;
     }
 
-    public void addPaquete(Paquete paquete) { //aqui falta 
-
+    public void addPaquete(Paquete paquete) {
+        paquetes.add(paquete);
     }
 
+    @Override
+    public void visualizar() {
+        System.out.println(
+                "Avión de carga matrícula: " + getMatricula() + ". velocidad:" + getVelocidad() + "km/h, contiene: ");
+        for (int i = 0; i < paquetes.size(); i++) {
+
+            pesoActual += paquetes.get(i).getPeso();
+            if (pesoActual <= peso_Maximo) {
+                System.out.println(
+                        "Nombre:" + paquetes.get(i).getNombre() + ", peso: " + paquetes.get(i).getPeso() + " kg");
+            } else {
+                System.out.println("El paquete no puede ser entregado. Carga máxima superada");
+            }
+
+        }
+    }
 }
 
-
-
-class Paquete {
-    
+ class Paquete {
     String nombre;
     double peso;
 
@@ -154,6 +160,4 @@ class Paquete {
     public void setPeso(double peso) {
         this.peso = peso;
     }
-
 }
-
