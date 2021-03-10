@@ -94,7 +94,7 @@ class Pasajero extends Avion {
      
     int numeroPasajeros;
 
-    @Override         //sobreesctritura del metodo visualizar 
+    @Override         //sobreesctritura del metodo visualizar
     public void visualizar() {  
         System.out.println("Avión de pasajeros matrícula: " + getMatricula() + ", capacidad: " + getNumeroPasajeros()  
                 + ", velocidad: " + getVelocidad() + " km/h");
