@@ -129,8 +129,9 @@ abstract class Avion {
                 "Avión de carga matrícula: " + getMatricula() + ". velocidad:" + getVelocidad() + "km/h, contiene: ");
         for (int i = 0; i < paquetes.size(); i++) {
 
-            pesoActual += paquetes.get(i).getPeso();
-            if (pesoActual <= peso_Maximo) {
+           // pesoActual += paquetes.get(i).getPeso();
+           if (pesoActual + paquetes.get(i).getPeso() <= peso_Maximo) {
+                pesoActual += paquetes.get(i).getPeso();
                 System.out.println(
                         "Nombre:" + paquetes.get(i).getNombre() + ", peso: " + paquetes.get(i).getPeso() + " kg");
             } else {
