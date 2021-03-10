@@ -28,13 +28,13 @@ public class Bronson {
         c1.addPaquete(p); //check  
 
         Paquete p2 = new Paquete();
-        p.setNombre("Regalos");
-        p.setPeso(255000.2);
+        p2.setNombre("Regalos");
+        p2.setPeso(255000.2);
         c1.addPaquete(p2);
 
         Paquete p3 = new Paquete();
-        p.setNombre("Mirra");
-        p.setPeso(12000.0);
+        p3.setNombre("Mirra");
+        p3.setPeso(12000.0);
         c1.addPaquete(p3);
 
         in.addAvion(av1);
@@ -54,7 +54,7 @@ public class Bronson {
         return aviones;
     }
 
-    public void addAvion(Avion avion) { //falta aqui
+    public void addAvion(Avion avion) { 
         aviones.add(avion);
     }   
 
@@ -95,7 +95,7 @@ abstract class Avion {
 
     @Override
     public void visualizar() {
-        System.out.println("Avión de pasajeros matrícula: " + getMatricula() + ", capacidad: " + getNumeroPasajeros()
+        System.out.println("Avión de pasajeros matrícula: " + getMatricula() + ", capacidad: " + getNumeroPasajeros()  
                 + ", velocidad: " + getVelocidad() + " km/h");
     }
 
@@ -124,7 +124,7 @@ abstract class Avion {
     }
 
     @Override
-    public void visualizar() {
+    public void visualizar() {   
         System.out.println(
                 "Avión de carga matrícula: " + getMatricula() + ". velocidad:" + getVelocidad() + "km/h, contiene: ");
         for (int i = 0; i < paquetes.size(); i++) {
