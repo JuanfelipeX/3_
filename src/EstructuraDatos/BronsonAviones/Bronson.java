@@ -41,7 +41,7 @@ public class Bronson {
         in.addAvion(av2);
         in.addAvion(c1);
         in.listaAviones();
-    }
+    }   
 
 }
     
@@ -54,12 +54,12 @@ public class Bronson {
         return aviones;
     }
 
-    public void addAvion(Avion avion) { 
+    public void addAvion(Avion avion) {  //se añade al array aviones
         aviones.add(avion);
     }   
 
     public void listaAviones() {  
-        for (int i = 0; i < aviones.size(); i++) {
+        for (int i = 0; i < aviones.size(); i++) {    //recorre el array y visualiza los datos
             aviones.get(i).visualizar();
         }
         
@@ -90,11 +90,12 @@ abstract class Avion {
 
 }
 
- class Pasajero extends Avion {
+class Pasajero extends Avion {
+     
     int numeroPasajeros;
 
-    @Override
-    public void visualizar() {
+    @Override         //sobreesctritura del metodo visualizar 
+    public void visualizar() {  
         System.out.println("Avión de pasajeros matrícula: " + getMatricula() + ", capacidad: " + getNumeroPasajeros()  
                 + ", velocidad: " + getVelocidad() + " km/h");
     }
@@ -110,7 +111,8 @@ abstract class Avion {
 }
 
 
- class Carga extends Avion {
+class Carga extends Avion {
+     
     ArrayList<Paquete> paquetes = new ArrayList<>();
     double peso_Maximo = 447700;
     double pesoActual=0;
@@ -126,12 +128,11 @@ abstract class Avion {
     @Override
     public void visualizar() {   
         System.out.println(
-                "Avión de carga matrícula: " + getMatricula() + ". velocidad:" + getVelocidad() + "km/h, contiene: ");
+                "Avión de carga matrícula: " + getMatricula() + ". velocidad:" + getVelocidad() + "km/h, contiene: ");   
         for (int i = 0; i < paquetes.size(); i++) {
 
-           // pesoActual += paquetes.get(i).getPeso();
-           if (pesoActual + paquetes.get(i).getPeso() <= peso_Maximo) {
-                pesoActual += paquetes.get(i).getPeso();
+           if (pesoActual + paquetes.get(i).getPeso() <= peso_Maximo) {           
+                pesoActual += paquetes.get(i).getPeso();     // suma peso actual con con el peso del array del paquete
                 System.out.println(
                         "Nombre:" + paquetes.get(i).getNombre() + ", peso: " + paquetes.get(i).getPeso() + " kg");
             } else {
@@ -142,7 +143,8 @@ abstract class Avion {
     }
 }
 
- class Paquete {
+class Paquete {
+     
     String nombre;
     double peso;
 
