@@ -1,0 +1,272 @@
+1{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bronson",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.BronsonAviones.Bronson",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Adivinar",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.Adivinar",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch ContarNumero",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.ContarNumero",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Doemeris",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.Doemeris",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch FactorialRecursivo",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.FactorialRecursivo",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch FibonacciDinamic",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.FibonacciDinamic",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch FibonacciRecur",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.FibonacciRecur",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch MCD",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.MCD",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch MCMRecursivo",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.MCMRecursivo",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Matilda",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.Matilda",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch MayorMenorRecursivo",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.MayorMenorRecursivo",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch MinimoComunMultiplo",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.MinimoComunMultiplo",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch PascalRecursivo",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.PascalRecursivo",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch PotenciaRecursiva",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.PotenciaRecursiva",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch ReduccionFraccionesRecursivo",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.ReduccionFraccionesRecursivo",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch SimplificarFracciones",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.SimplificarFracciones",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch SumaCubos",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.SumaCubos",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch SumaDosEnteros",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.SumaDosEnteros",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch SumatoriaRecursiva",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.SumatoriaRecursiva",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch TorreHaoi",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.EjerciciosRecursivos.TorreHaoi",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ejercicio1",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.ListasEnlazadas.Ejercicio1",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example1",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.ListasEnlazadas.Example1",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example2",
+            "request": "launch",
+            "mainClass": "EstructuraDatos.ListasEnlazadas.Example2",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Modified_GCD",
+            "request": "launch",
+            "mainClass": "Semillero.Modified_GCD",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch ConsecionarioArray",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Clase.Consecionario.ConsecionarioArray",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch ConsecionarioExercise",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Clase.Consecionario.ConsecionarioExercise",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch ProyectoIMC",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Clase.IMCPersona.ProyectoIMC",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch ProyectoCalculadora",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Clase.ProyectoCalculadora.ProyectoCalculadora",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch NominaArrayList",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Clase.ProyectoNomina.NominaArrayList",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch NominaEmpresa",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Clase.ProyectoNomina.NominaEmpresa",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjercicioOperaciones",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Ejercicios.Ejercicio1.EjercicioOperaciones",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjericioNumeroMayorMenor",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Ejercicios.Ejercicio1.EjericioNumeroMayorMenor",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch EvaluarPositivoNumero",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Ejercicios.Ejercicio1.EvaluarPositivoNumero",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Par",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Ejercicios.Ejercicio1.Par",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch inversoNumero",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Ejercicios.Ejercicio1.inversoNumero",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjercicioEstatic",
+            "request": "launch",
+            "mainClass": "TecnicasProgramacion.Ejercicios.Herramientas.EjercicioEstatic",
+            "projectName": "3Semestre_ebc9cdfc"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploStatic",
+            "request": "launch",
+            "mainClass": "Static.EjemploStatic"
+        }
+    ]
+}
