@@ -41,25 +41,25 @@ public class Modified_GCD {  // https://codeforces.com/problemset/problem/75/C
         int size = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < size; i++) { //aqui se ingresan los datos 
-            //String[] text = br.readLine().split("");
+
             String textos = br.readLine();
             String[] parts = textos.split(" ");
             int w = Integer.parseInt(parts[0]);
             int e = Integer.parseInt(parts[1]);
 
+            for (int q = 1; q < mcm; q++) {
 
-           
-        }
-        
-        for (int i = 1; i < mcm; i++) {
-            if (mcm % i == 0) { //aqui mira cuales son los divisibles
-                // int vector[] = new int[i]; //aqui supuestamente llena los datos
-                a.add(i);
+                if (mcm % i == 0) { //aqui mira cuales son los divisibles
 
-                //añadir los numeros divisibles en vectores luego decir el numero entre el rango pedido este en esa lista si no dar -1
+                    // int vector[] = new int[i]; //aqui supuestamente llena los datos
+
+                    a.add(i);
+                    System.out.println(a);
+
+                    //añadir los numeros divisibles en vectores luego decir el numero entre el rango pedido este en esa lista si no dar -1
+
+                }
             }
         }
-        
     }
-    
 }
