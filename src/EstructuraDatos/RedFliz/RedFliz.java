@@ -72,7 +72,6 @@ class OpcionesPelicula extends Opciones {
             switch (opcion) {
                 
             case 1:
-
                 System.out.println("Agrege los datos separados por (' ')");
                 String texto = br.readLine();
                 String[] dato = texto.split(" ");
@@ -83,20 +82,23 @@ class OpcionesPelicula extends Opciones {
                 Pelicula pelicula2 = new Pelicula(tituloPeli, resumenPeli, anio);  //se instancia otra porque este va añadiendo las peliculas
 
                 pelicula.addpeli(pelicula2);
-
                 break;
+
             case 2:
 
+                System.out.println("Ingrese el nombre del titulo de la pelicula");
+                String tituloPeliculaBorrar = br.readLine();
+                pelicula.borrarPeli(tituloPeliculaBorrar);
                 break;
 
             case 3:
-
                 pelicula.visualizar();
                 break;
 
             case 4:
                 System.exit(0);
                 break;
+                
             default:
                 System.out.println("Opcion no seleccionada correctamente...");
                 break;
@@ -167,8 +169,16 @@ class Pelicula extends Catalogo {
     String resumen;
     int anio;
 
+    
+    public Pelicula(String titulo, String resumen, int anio) {
+        super.titulo = titulo; //no olvidar el super
+        this.resumen = resumen;
+        this.anio = anio;
+    }
+
     public Pelicula() {
     }
+
 
     public String getResumen() {
         return resumen;
@@ -189,32 +199,30 @@ class Pelicula extends Catalogo {
     public ArrayList<Catalogo> getCatalogoPelis() {
         return catalogoPelis;
     }
+    
+    public void addpeli(Catalogo peli) { // se apoya del catalago porque tiene titulo y alli luego lo añade con resumen y anio
+        catalogoPelis.add(peli);
+    }
+    
+    public void borrarPeli(String tituloPeli) {          //borra la pelicula
+        for (int i = 0; i < catalogoPelis.size(); i++) {
+            if (catalogoPelis.get(i).getTitulo().equalsIgnoreCase(tituloPeli)) {   // obtiene el indice de cada uno y va mirando como el titulo hasta que coincida y lo borra
+                catalogoPelis.remove(i);
+                System.out.println("Pelicula borrada con exito");
+            }
+            System.out.println("No se pudo borrar la pelicula, Revisa por favor");
+        }
+    }
 
     @Override
     public void visualizar() { //imprime el toString
-
         System.out.println(catalogoPelis);
-    }
-    
-    public void addpeli(Catalogo peli) {  // se apoya del catalago porque tiene titulo y alli luego lo añade con resumen y anio
-        catalogoPelis.add(peli);
-    }
-
-    public Pelicula(String titulo, String resumen, int anio) {
-        super.titulo = titulo; //no olvidar el super
-        this.resumen = resumen;
-        this.anio = anio;
     }
 
     @Override
     public String toString() {
         return "Pelicula [Titulo= " + super.titulo + ", Resumen= " + resumen + ", Anio= " + anio + "]"; 
     }
-
-    
-
-    
-
 }
 
 class Serie extends Catalogo {
