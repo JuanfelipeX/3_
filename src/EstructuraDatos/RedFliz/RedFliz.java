@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class RedFliz {
+public class RedFliz {  //este es un preparcial de 1 corte de estructura de datos que puede ayudar mucho. trae clases abstractas, herencia, static Keyword, etc
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
