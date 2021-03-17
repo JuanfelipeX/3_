@@ -11,7 +11,7 @@ public class Figura {
 
         circulo.setRadio(Float.parseFloat(JOptionPane.showInputDialog("Ingrese el radio: ")));
         cilindro.setAltura(Float.parseFloat(JOptionPane.showInputDialog("Ingrese el radio: ")));
-        JOptionPane.showMessageDialog(null, "El volumen del cilindro es: " + cilindro.volumenCilindro());
+        JOptionPane.showMessageDialog(null, "El volumen del cilindro es: " + cilindro.volumenCilindro());  //arereglar
     }
 }
 
