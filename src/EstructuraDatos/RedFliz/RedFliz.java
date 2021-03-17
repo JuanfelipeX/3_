@@ -72,7 +72,7 @@ class OpcionesPelicula extends Opciones {
             switch (opcion) {
                 
             case 1:
-                System.out.println("Agrege los datos separados por (' ')");
+                System.out.println("Agrege los datos separados por (' '), (Titulo de la pelicula, resumen de la pelicula, anio)");
                 String texto = br.readLine();
                 String[] dato = texto.split(" ");
                 String tituloPeli = dato[0];
@@ -98,7 +98,7 @@ class OpcionesPelicula extends Opciones {
             case 4:
                 System.exit(0);
                 break;
-                
+
             default:
                 System.out.println("Opcion no seleccionada correctamente...");
                 break;
@@ -115,6 +115,7 @@ class OpcionesSerie extends Opciones {
     public void MostrarOptions() throws NumberFormatException, IOException {
 
         int opcion;
+        Serie serie = new Serie(); // se instancia para meterse en los metodos
 
         do {
             System.out.println("\n" + "Seleccione alguna de las opciones:" + "\n" + "1. Agregar Serie. " + "\n"
@@ -125,13 +126,27 @@ class OpcionesSerie extends Opciones {
             switch (opcion) {
             case 1:
 
-                break;
-            case 2:
+                System.out.println("Agrege los datos separados por (' '), (Titulo, Numero de Temporadas, Numero de Episodios)");
+                String texto = br.readLine();
+                String[] dato = texto.split(" ");
+                String tituloPeli = dato[0];
+                int numerosTemporadas = Integer.parseInt(dato[1]);
+                int numeroEpisodios = Integer.parseInt(dato[2]);
 
+                Serie serie2 = new Serie(tituloPeli, numerosTemporadas, numeroEpisodios);  // se instancia otra porque
+                                                                                          // este va añadiendo las
+                                                                                          // series
+                serie.addpeli(serie2);
+                break;
+
+            case 2:
+                System.out.println("Ingrese el nombre del titulo de la pelicula");
+                String tituloPeliculaBorrar = br.readLine();
+                serie.borrarSerie(tituloPeliculaBorrar);
                 break;
 
             case 3:
-
+                serie.visualizar();
                 break;
 
             case 4:
@@ -227,8 +242,19 @@ class Pelicula extends Catalogo {
 
 class Serie extends Catalogo {
 
+    ArrayList<Catalogo> catalogoSeries = new ArrayList<>();
+
     int numerosTemporadas;
     int numeroEpisodios;
+
+    public Serie(String titulo, int numerosTemporadas, int numeroEpisodios) {
+        super.titulo = titulo;
+        this.numerosTemporadas = numerosTemporadas;
+        this.numeroEpisodios = numeroEpisodios;
+    }
+
+    public Serie() {
+    }
 
     public int getNumerosTemporadas() {
         return numerosTemporadas;
@@ -246,8 +272,36 @@ class Serie extends Catalogo {
         this.numeroEpisodios = numeroEpisodios;
     }
 
+    public ArrayList<Catalogo> getCatalogoSeries() {
+        return catalogoSeries;
+    }
+
+    public void setCatalogoSeries(ArrayList<Catalogo> catalogoSeries) {
+        this.catalogoSeries = catalogoSeries;
+    }
+
+    public void addpeli(Catalogo serie) {
+        catalogoSeries.add(serie);
+    }
+
+    public void borrarSerie(String tituloSerie) { 
+        for (int i = 0; i < catalogoSeries.size(); i++) {
+            if (catalogoSeries.get(i).getTitulo().equalsIgnoreCase(tituloSerie)) { 
+                catalogoSeries.remove(i);
+                System.out.println("Serie borrada con exito");
+            }
+            System.out.println("No se pudo borrar la serie, Revisa por favor");
+        }
+    }
+
     @Override
     public void visualizar() {
+        System.out.println(catalogoSeries);
+    }
 
+    @Override
+    public String toString() {
+        return "Serie [Titulo Serie=" + super.titulo + ", numeroEpisodios=" + numeroEpisodios
+                + ", numerosTemporadas=" + numerosTemporadas + "]";
     }
 }   
