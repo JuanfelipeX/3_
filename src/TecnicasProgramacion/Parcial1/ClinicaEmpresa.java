@@ -7,18 +7,35 @@ import javax.swing.JOptionPane;
 public class ClinicaEmpresa {
 
     public static void main(String[] args) {
-        Descuentos descuentos = new Descuentos();
 
-        descuentos.anadirEmpleado();
-        descuentos.descuentosPensionSalud();
-        descuentos.descuentoSolidaridad();
-        descuentos.solidaridadTotal();
+        AmorAmistad amorAmistad = new AmorAmistad();
 
-        descuentos.salarioNeto();
-        descuentos.imprimirDatos();
-        
+        amorAmistad.anadirEmpleado();
+        amorAmistad.descuentosPensionSalud();
+        amorAmistad.descuentoSolidaridad();
+        amorAmistad.solidaridadTotal();
+
+        amorAmistad.bonoPersonasEstratoDos();
+        amorAmistad.bonoPersonasEstratoUno();
+        amorAmistad.bonoAnioBisiesto();
+
+        amorAmistad.salarioNeto();
+        amorAmistad.imprimirDatos();
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -29,17 +46,28 @@ class Empleado {
     protected String nombre;
     protected double salario;
     protected int estrato;
+    protected int cedula;
+    protected String hijos;
+    protected String anioBisiesto;
+
     protected double salarioNeto;
     protected double salarioDescuentos;
-    protected double salarioDescuentosSolidaridad=0;
+    protected double salarioDescuentosSolidaridad = 0;
+    protected double bonoDeCincuenta = 50000;
+    protected double bonoCien = 100000;
+    protected double bonoBisiesto = 200000;
 
-
-    public Empleado(String nombre, double salario, int estrato, double salarioDescuentos, double salarioDescuentosSolidaridad) {
+    public Empleado(String nombre, double salario, int estrato, int cedula, String hijos, String anioBisiesto,
+            double salarioDescuentos, double salarioDescuentosSolidaridad ) {
         this.nombre = nombre;
         this.salario = salario;
         this.estrato = estrato;
+        this.cedula = cedula;
+        this.hijos = hijos;
+        this.anioBisiesto = anioBisiesto;
         this.salarioDescuentos = salarioDescuentos;
         this.salarioDescuentosSolidaridad = salarioDescuentosSolidaridad;
+        
     }
 
     public Empleado() {
@@ -69,6 +97,34 @@ class Empleado {
         this.estrato = estrato;
     }
 
+    public int getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getHijos() {
+        return hijos;
+    }
+
+    public void setHijos(String hijos) {
+        this.hijos = hijos;
+    }
+
+    public String getAnioBisiesto() {
+        return anioBisiesto;
+    }
+
+    public void setAnioBisiesto(String anioBisiesto) {
+        this.anioBisiesto = anioBisiesto;
+    }
+
+
+
+
+
     public double getSalarioNeto() {
         return salarioNeto;
     }
@@ -92,6 +148,36 @@ class Empleado {
     public void setSalarioDescuentosSolidaridad(double salarioDescuentosSolidaridad) {
         this.salarioDescuentosSolidaridad = salarioDescuentosSolidaridad;
     }
+    
+    
+    
+    
+    public double getBonoDeCincuenta() {
+        return bonoDeCincuenta;
+    }
+
+    public void setBonoDeCincuenta(double bonoDeCincuenta) {
+        this.bonoDeCincuenta = bonoDeCincuenta;
+    }
+
+    public double getBonoCien() {
+        return bonoCien;
+    }
+
+
+    public void setBonoCien(double bonoCien) {
+        this.bonoCien = bonoCien;
+    }
+
+    public double getBonoBisiesto() {
+        return bonoBisiesto;
+    }
+
+    public void setBonoBisiesto(double bonoBisiesto) {
+        this.bonoBisiesto = bonoBisiesto;
+    }
+
+
 
     public void anadirEmpleado() {
 
@@ -102,10 +188,16 @@ class Empleado {
             setNombre(JOptionPane.showInputDialog("Ingrese el nombre "));
             setSalario(Double.parseDouble(JOptionPane.showInputDialog("Ingrese el salario ")));
             setEstrato(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el estrato ")));
-
-            setSalarioDescuentos(getSalario());
+            setCedula(Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cedula ")));
+            setHijos((JOptionPane.showInputDialog("¿Tiene Hijos? (Si o No) ")));
+            setAnioBisiesto(JOptionPane.showInputDialog("Nacio en anio bisiesto (Si o No)"));
             
-            Descuentos empleado = new Descuentos(getNombre(), getSalario(), getEstrato(), getSalarioDescuentos(), getSalarioDescuentosSolidaridad()); //aqui hago el constructor para anadir en la arrayList
+
+            setSalarioDescuentos(getSalario()); //salarioDescuento es igual a salario
+
+            AmorAmistad empleado = new AmorAmistad(getNombre(), getSalario(), getEstrato(), getCedula(), getHijos(),
+                    getAnioBisiesto(), getSalarioDescuentos(), getSalarioDescuentosSolidaridad()); //aqui hago el constructor para anadir en la arrayList
+
             listaEmpleados.add(empleado);
         }
     }
@@ -121,16 +213,29 @@ class Empleado {
     
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Descuentos extends Empleado {
-    
+
     protected double salud = 0.03;
     protected double pension = 0.04;
     protected double FondoSolidario = 0.02;
     protected double fondoSolidaridadTotal;
 
-    
-    public Descuentos(String nombre, double salario, int estrato, double salarioDescuentos, double salarioDescuentosSolidaridad) {
-        super(nombre, salario, estrato, salarioDescuentos, salarioDescuentosSolidaridad);
+    public Descuentos(String nombre, double salario, int estrato, int cedula, String hijos, String anioBisiesto,
+            double salarioDescuentos, double salarioDescuentosSolidaridad) {
+        super(nombre, salario, estrato, cedula, hijos, anioBisiesto, salarioDescuentos, salarioDescuentosSolidaridad );
     }
 
     public Descuentos(double salud, double pension) {
@@ -188,30 +293,104 @@ class Descuentos extends Empleado {
 
         }
     }
-    
+
     public void descuentoSolidaridad() {
 
         for (int i = 0; i < listaEmpleados.size(); i++) {
 
             if (listaEmpleados.get(i).getSalario() >= 3634104) {
 
-                double descuentoSolidaridad = listaEmpleados.get(i).getSalario() * getFondoSolidario();   ////multiplica salario por fondoSolidario 0.02 y luego ese resultado lo resta con SalarioDescuentos y lo setea
+                double descuentoSolidaridad = listaEmpleados.get(i).getSalario() * getFondoSolidario(); ////multiplica salario por fondoSolidario 0.02 y luego ese resultado lo resta con SalarioDescuentos y lo setea
                 descuentoSolidaridad = listaEmpleados.get(i).getSalarioDescuentos() - descuentoSolidaridad;
 
                 listaEmpleados.get(i).setSalarioDescuentos(descuentoSolidaridad);
 
-                double descuentoSolidaridad2 = listaEmpleados.get(i).getSalario() * getFondoSolidario();  
-                listaEmpleados.get(i).setSalarioDescuentosSolidaridad(descuentoSolidaridad2);   //aqui setea setSalarioDescuentosSolidaridad usando descuentoSolidaridad2
+                double descuentoSolidaridad2 = listaEmpleados.get(i).getSalario() * getFondoSolidario();
+                listaEmpleados.get(i).setSalarioDescuentosSolidaridad(descuentoSolidaridad2); //aqui setea setSalarioDescuentosSolidaridad usando descuentoSolidaridad2
             }
         }
     }
 
     public void solidaridadTotal() {
         for (int i = 0; i < listaEmpleados.size(); i++) {
-            fondoSolidaridadTotal += listaEmpleados.get(i).getSalarioDescuentosSolidaridad();   //suma cada SalarioDescuentosSolidaridad y lo guarda en fondoSolidaridadTotal
+            fondoSolidaridadTotal += listaEmpleados.get(i).getSalarioDescuentosSolidaridad(); //suma cada SalarioDescuentosSolidaridad y lo guarda en fondoSolidaridadTotal
         }
     }
+
     
+}
+
+
+
+
+
+
+
+
+
+
+
+class AmorAmistad extends Descuentos {
+
+
+    protected double dineroInvetidoBonosDecincuenta;
+    protected double dineroInvetidoBonosDecien;
+    protected double dineroInvetidoBonosAnioBisiesto;
+
+    
+
+    public AmorAmistad(String nombre, double salario, int estrato, int cedula, String hijos, String anioBisiesto,
+            double salarioDescuentos, double salarioDescuentosSolidaridad) {
+        super(nombre, salario, estrato, cedula, hijos, anioBisiesto, salarioDescuentos, salarioDescuentosSolidaridad);
+    }
+
+    
+    public AmorAmistad(double salud, double pension, double dineroInvetidoBonosDecincuenta) {
+        super(salud, pension);
+        this.dineroInvetidoBonosDecincuenta = dineroInvetidoBonosDecincuenta;
+    }
+
+    public AmorAmistad() {
+    }
+    
+
+    public void bonoPersonasEstratoDos() {
+
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+
+            if (listaEmpleados.get(i).getEstrato() == 2) {
+                if (listaEmpleados.get(i).getCedula() == 2 || listaEmpleados.get(i).getCedula() == 4
+                        || listaEmpleados.get(i).getCedula() == 7) {
+
+                    dineroInvetidoBonosDecincuenta += listaEmpleados.get(i).getBonoDeCincuenta();   //busca lista empleados con getBonoDeCincuenta y va sumando dineroInvetidoBonosDecincuenta y asi con cada una
+                }
+            }
+        }
+
+    }
+    
+    public void bonoPersonasEstratoUno() {
+
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+
+            if (listaEmpleados.get(i).getEstrato() == 1) {
+                if (listaEmpleados.get(i).getHijos().equalsIgnoreCase("Si")) {
+                    dineroInvetidoBonosDecien += listaEmpleados.get(i).getBonoCien();
+                }
+            }
+        }
+    }
+
+    public void bonoAnioBisiesto() {
+
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            if (listaEmpleados.get(i).getAnioBisiesto().equalsIgnoreCase("Si")) {
+                dineroInvetidoBonosAnioBisiesto += listaEmpleados.get(i).getBonoBisiesto();  
+            }
+        }
+    }
+
+
     public void imprimirDatos() {
         JOptionPane.showMessageDialog(null, listaEmpleados.toString());
         JOptionPane.showMessageDialog(null, "Salario Neto " + getSalarioNeto());
@@ -223,22 +402,33 @@ class Descuentos extends Empleado {
         } else {
             JOptionPane.showMessageDialog(null, "el gobierno NO le hará un descuento en impuestos del 2% :c");
         }
+
+        JOptionPane.showMessageDialog(null,
+                "Dinero invertido en bonos de 50.000 es de: " + dineroInvetidoBonosDecincuenta);
+        JOptionPane.showMessageDialog(null,
+                "Dinero invertido en bonos de 100.000 es de: " + dineroInvetidoBonosDecien);
+
+        JOptionPane.showMessageDialog(null,
+                "Dinero invertido en bonos de 200.000 es de: " + dineroInvetidoBonosAnioBisiesto);
+
+        double bonosTotales = (dineroInvetidoBonosDecincuenta + dineroInvetidoBonosDecien
+                + dineroInvetidoBonosAnioBisiesto);
+                
+        JOptionPane.showMessageDialog(null,
+                "Dinero invertido en bonos totales es de: " + bonosTotales);
     }
 
     @Override
     public String toString() {
-        return "Empleado [Nombre=" + nombre + ", Estrato=" + estrato + ", salario=" + salario
+        return "Empleado [Nombre=" + nombre + ", cedula=" + cedula + ", nacion en anio bisiesto=" + anioBisiesto + ", Estrato="
+                + estrato + ", hijos=" + hijos + ", salario=" + salario
                 + ", salario descontando de pension, salud y fondo de solidaridad SI cumple con el requsito ="
                 + salarioDescuentos + "\n" + "]";
+
     }
 
-    
-
-    
-    
-
-    
-
-    
-
 }
+
+
+
+
