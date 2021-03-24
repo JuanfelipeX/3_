@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class ClinicaEmpresa {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
 
         AmorAmistad amorAmistad = new AmorAmistad();
 
@@ -24,7 +24,6 @@ public class ClinicaEmpresa {
 
     }
 }
-
 
 
 
