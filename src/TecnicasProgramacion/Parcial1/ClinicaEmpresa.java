@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-public class ClinicaEmpresa {
+public class ClinicaEmpresa { //Este es una "recuperacion"
 
     public static void main(String[] args) { 
 
