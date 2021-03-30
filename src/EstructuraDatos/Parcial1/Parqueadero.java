@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Parqueadero {   //aqui estan todas las clases No me alcanzo el tiempo para el 2 :c perdon por el codigo espaguetti
+public class Parqueadero {   //aqui estan todas las clases No me alcanzo el tiempo para el 2 :c perdon por el codigo espaguetti  NOTA PARCIAL 33 LOL
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -21,8 +21,6 @@ public class Parqueadero {   //aqui estan todas las clases No me alcanzo el tiem
         Motos motos = new Motos();
         Bicicletas bicicletas = new Bicicletas();
                 
-
-
         do {
             System.out.println("\n" + "Seleccione alguna de las opciones:" + "\n" + "1. Agregar. " + "\n"
                     + "2. Consultar. " + "\n" + "3. visualizar. " + "\n" + "4. Salir");
