@@ -36,27 +36,33 @@ public class Parqueadero {   //aqui estan todas las clases No me alcanzo el tiem
                     int opcion2 = Integer.parseInt(br.readLine()); 
 
                     if (opcion2 == 1) {
-
                         automovil.anadirVehiculo();
 
                     } else if (opcion2 == 2) {
+                        motos.anadirMoto();
                     
-                    motos.anadirMoto();
+                    } else if (opcion2 == 3) {
+                        bicicletas.anadirBici();
 
-                } else if (opcion2 == 3) {
-                    
-                    bicicletas.anadirBici();
-                }
+                    }
                 break;
 
             case 2:
 
+                automovil.buscarCoche();
+
                 break;
 
-            case 3:     
+            case 3:
+
+            if (automovil.listaCarros.isEmpty() && motos.listaMotos.isEmpty() && bicicletas.listaBicis.isEmpty()){
+                System.out.println("No hay automoviles");
+
+            } else {
                 automovil.visualizar();
                 motos.visualizar();
                 bicicletas.visualizar();
+            }
                 break;
                 
             case 4:
@@ -67,7 +73,7 @@ public class Parqueadero {   //aqui estan todas las clases No me alcanzo el tiem
                 System.out.println("Opcion no seleccionada correctamente...");
                 break;
             }
-        } while (opcion != 3);
+        } while (opcion != 4);
     }
 }
 
@@ -116,7 +122,15 @@ class Automovil extends Modelo {
         this.numeroDocumento = numeroDocumento;
     }
 
-     public Automovil() {
+    public Automovil() {
+    }
+    
+    public int getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(int numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
     }
 
     @Override
@@ -139,12 +153,24 @@ class Automovil extends Modelo {
 
     }
 
+    public void buscarCoche() throws NumberFormatException, IOException {
+        
+        System.out.println("Ingrese su documento");
+        int documento = Integer.parseInt(br.readLine());
+        for (int i = 0; i < listaCarros.size(); i++) {
+            if (documento == ((Automovil) listaCarros.get(i)).getNumeroDocumento()) {
+                System.out.println(listaCarros.get(i));
+
+            } else {
+                System.out.println("El documento no se encuentra");
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return "Automovil [placas= " + placa + ", Marca= " + marca + ", anioModelo" + anioModelo + ", numeroDocumento" + numeroDocumento + "]";
     }
-    
-    
 }
 
 
