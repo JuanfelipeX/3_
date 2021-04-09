@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package compresionmenu;
+package EstructuraDatos.CompressionMenu;
 
 //Creación de la interfaz con el método compress que recibe el paramétro filename de tipo String
 interface CompressionAlgorithm {
