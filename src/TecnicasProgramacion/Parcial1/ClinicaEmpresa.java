@@ -4,9 +4,14 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-public class ClinicaEmpresa { //Este es una "recuperacion"
+public class ClinicaEmpresa { //se aplican tema herencia y arrayList
 
     public static void main(String[] args) { 
+
+        secuencia();
+    }
+
+    private static void secuencia(){
 
         AmorAmistad amorAmistad = new AmorAmistad();
 
@@ -23,6 +28,7 @@ public class ClinicaEmpresa { //Este es una "recuperacion"
         amorAmistad.imprimirDatos();
 
     }
+
 }
 
 
@@ -391,6 +397,7 @@ class AmorAmistad extends Descuentos {
 
 
     public void imprimirDatos() {
+        
         JOptionPane.showMessageDialog(null, listaEmpleados.toString());
         JOptionPane.showMessageDialog(null, "Salario Neto " + getSalarioNeto());
 
