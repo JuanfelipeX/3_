@@ -6,7 +6,7 @@ import java.util.Stack;
 public class RevertirGrupal {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    
+
     public static void main(String[] args) throws IOException {
 
         while (true) {
@@ -25,21 +25,46 @@ public class RevertirGrupal {
 
     private static void proceso(int number, String texto) {
 
-        int subdivision = texto.length() / number;
-
         Stack<Character> stack = new Stack<>();
-
-        for (int i = 0; i < texto.length(); i++) {
-            stack.push(texto.charAt(i));
-        }
         StringBuilder strb = new StringBuilder();
-        while (!stack.empty()) {
-            strb.append(stack.pop());
+
+        int subdivision = texto.length() / number;
+        //int cont = 0;
+
+
+        for (int i = texto.length() - 1; i >= 0; i-=number) {
+
+            int auxcont = i;
+
+            for (int j = auxcont-number+1; j <= auxcont; j++) {
+                
+                stack.push(texto.charAt(j));
+                
+            }
             
+          //  cont++; //suma el contador despues de cada push
+
+            
+            /*
+            
+            if (subdivision == cont) {   
+                strb.append(stack.pop());
+                stack.clear();
+            cont = 0;
+            }    
+              */
+
         }
-        System.out.println(strb);  //aqui invierte toda la cadena, pero no lo hace por los grupos como mencione
+        while (!stack.empty()) {
 
+            strb.append(stack.pop());
 
+        }
+
+                
+           
+
+        System.out.println(strb); //aqui invierte toda la cadena, pero no lo hace por los grupos como mencione
 
         /*
         StringBuilder strb = new StringBuilder(texto);
@@ -49,3 +74,5 @@ public class RevertirGrupal {
 
     }
 }
+
+
