@@ -25,46 +25,26 @@ public class RevertirGrupal {
 
     private static void proceso(int number, String texto) {
 
+        int bloque = texto.length() / number;
         Stack<Character> stack = new Stack<>();
         StringBuilder strb = new StringBuilder();
 
-        int subdivision = texto.length() / number;
-        //int cont = 0;
+        for (int i = 0; i < texto.length(); i += bloque) {
+            // Creo el subgrupo a invertir de tamaño bloque 
+            int left = i;
+            int right = Math.min(i + bloque - 1, texto.length() - 1); // Caso en que texto.length % number != 0
 
-
-        for (int i = texto.length() - 1; i >= 0; i-=number) {
-
-            int auxcont = i;
-
-            for (int j = auxcont-number+1; j <= auxcont; j++) {
-                
-                stack.push(texto.charAt(j));
-                
+            // Añado a la pila el subgrupo de bloque elementos
+            while (left <= right) {
+                stack.push(texto.charAt(left));
+                left++;
             }
-            
-          //  cont++; //suma el contador despues de cada push
-
-            
-            /*
-            
-            if (subdivision == cont) {   
+            // Desempilo y añado a strb
+            while (!stack.empty()) {
                 strb.append(stack.pop());
-                stack.clear();
-            cont = 0;
-            }    
-              */
-
+            }
         }
-        while (!stack.empty()) {
-
-            strb.append(stack.pop());
-
-        }
-
-                
-           
-
-        System.out.println(strb); //aqui invierte toda la cadena, pero no lo hace por los grupos como mencione
+        System.out.println(strb);
 
         /*
         StringBuilder strb = new StringBuilder(texto);
