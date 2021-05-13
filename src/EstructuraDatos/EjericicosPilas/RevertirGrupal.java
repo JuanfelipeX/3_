@@ -9,18 +9,30 @@ public class RevertirGrupal {
 
     public static void main(String[] args) throws IOException {
 
-        while (true) {
+        try {
+            
+           boolean a= true;
+
+        while (a) {
             String cadenaText = br.readLine();
             String[] parts = cadenaText.split(" ");
             int number = Integer.parseInt(parts[0]);
             String texto = parts[1];
 
             if (number == 0) {
+                a = false;
                 break;
             }
 
             proceso(number, texto);
+        } 
+
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+
         }
+
+        
     }
 
     private static void proceso(int number, String texto) {
